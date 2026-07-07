@@ -1,0 +1,34 @@
+{
+  "plans": [
+    {
+      "id": "PLAN_S",
+      "name": "Starter 500",
+      "monthly_recurring_charge": "20.00",
+      "allowance": { "voice_seconds": 30000, "sms": 200, "data_kb": 2097152 },
+      "overage": { "per_voice_minute": "0.10", "per_sms": "0.05", "per_mb": "0.01" },
+      "regulatory_fee": "1.50",
+      "admin_fee": "0.99",
+      "tax_category": "STD"
+    },
+    {
+      "id": "PLAN_L",
+      "name": "Unlimited Plus",
+      "monthly_recurring_charge": "45.00",
+      "allowance": { "voice_seconds": 999999999, "sms": 999999, "data_kb": 52428800 },
+      "overage": { "per_voice_minute": "0.05", "per_sms": "0.02", "per_mb": "0.005" },
+      "regulatory_fee": "2.00",
+      "admin_fee": "1.50",
+      "tax_category": "STD"
+    },
+    {
+      "id": "PLAN_PRE",
+      "name": "Prepaid Pay-As-You-Go",
+      "monthly_recurring_charge": "0.00",
+      "allowance": { "voice_seconds": 0, "sms": 0, "data_kb": 0 },
+      "overage": { "per_voice_minute": "0.15", "per_sms": "0.10", "per_mb": "0.02" },
+      "regulatory_fee": "0.00",
+      "admin_fee": "0.00",
+      "tax_category": "STD"
+    }
+  ]
+}

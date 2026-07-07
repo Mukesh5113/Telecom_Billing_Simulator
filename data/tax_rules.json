@@ -1,0 +1,6 @@
+{
+  "taxes": [
+    { "id": "FED",   "name": "Federal Excise Tax",  "category": "*",   "rate_bp": 300 },
+    { "id": "STATE", "name": "State Sales Tax",      "category": "STD", "rate_bp": 825 }
+  ]
+}

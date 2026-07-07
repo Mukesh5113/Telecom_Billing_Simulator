@@ -1,0 +1,6 @@
+ban,name,mode,subscriber_no,plan_id,balance
+1001,Alice Family,postpaid,5551000001,PLAN_S,0
+1001,Alice Family,postpaid,5551000002,PLAN_S,0
+1001,Alice Family,postpaid,5551000003,PLAN_L,0
+1002,Bob Solo,postpaid,5552000001,PLAN_L,0
+2001,Carol Prepaid,prepaid,5559000001,PLAN_PRE,10.00

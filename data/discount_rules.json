@@ -1,0 +1,6 @@
+{
+  "discounts": [
+    { "id": "LOYAL",  "name": "Loyalty 10% off recurring", "kind": "percent_off_recurring", "rate_bp": 1000 },
+    { "id": "FAMILY", "name": "Multi-line bundle credit",   "kind": "multi_line_bundle",     "amount": "10.00", "min_lines": 3 }
+  ]
+}
