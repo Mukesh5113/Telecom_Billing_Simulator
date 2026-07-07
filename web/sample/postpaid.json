@@ -1,0 +1,56 @@
+{
+  "invoices": [
+    {
+      "ban": "1001",
+      "name": "Alice Family",
+      "charges": [
+        { "subscriber_no": "5551000001", "type": "USAGE", "description": "Voice overage: 50 min", "amount": "5.00", "amount_minor": 500, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000001", "type": "USAGE", "description": "SMS overage: 50 msg", "amount": "2.50", "amount_minor": 250, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000001", "type": "USAGE", "description": "Data overage: 101 MB", "amount": "1.01", "amount_minor": 101, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000001", "type": "RECURRING", "description": "Monthly plan charge (Starter 500)", "amount": "20.00", "amount_minor": 2000, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000001", "type": "FEE", "description": "Regulatory fee", "amount": "1.50", "amount_minor": 150, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000001", "type": "FEE", "description": "Administrative fee", "amount": "0.99", "amount_minor": 99, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000002", "type": "RECURRING", "description": "Monthly plan charge (Starter 500)", "amount": "20.00", "amount_minor": 2000, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000002", "type": "FEE", "description": "Regulatory fee", "amount": "1.50", "amount_minor": 150, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000002", "type": "FEE", "description": "Administrative fee", "amount": "0.99", "amount_minor": 99, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000003", "type": "RECURRING", "description": "Monthly plan charge (Unlimited Plus)", "amount": "45.00", "amount_minor": 4500, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000003", "type": "FEE", "description": "Regulatory fee", "amount": "2.00", "amount_minor": 200, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000003", "type": "FEE", "description": "Administrative fee", "amount": "1.50", "amount_minor": 150, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5551000001", "type": "DISCOUNT", "description": "Loyalty 10% off recurring", "amount": "-2.00", "amount_minor": -200, "taxable": false, "tax_category": "" },
+        { "subscriber_no": "5551000002", "type": "DISCOUNT", "description": "Loyalty 10% off recurring", "amount": "-2.00", "amount_minor": -200, "taxable": false, "tax_category": "" },
+        { "subscriber_no": "5551000003", "type": "DISCOUNT", "description": "Loyalty 10% off recurring", "amount": "-4.50", "amount_minor": -450, "taxable": false, "tax_category": "" },
+        { "subscriber_no": "", "type": "DISCOUNT", "description": "Multi-line bundle credit (3 lines)", "amount": "-10.00", "amount_minor": -1000, "taxable": false, "tax_category": "" },
+        { "subscriber_no": "", "type": "TAX", "description": "Federal Excise Tax", "amount": "3.06", "amount_minor": 306, "taxable": false, "tax_category": "*" },
+        { "subscriber_no": "", "type": "TAX", "description": "State Sales Tax", "amount": "8.41", "amount_minor": 841, "taxable": false, "tax_category": "STD" }
+      ],
+      "totals": {
+        "usage": "8.51",
+        "recurring": "85.00",
+        "fees": "8.48",
+        "discounts": "-18.50",
+        "tax": "11.47",
+        "grand_total": "94.96"
+      }
+    },
+    {
+      "ban": "1002",
+      "name": "Bob Solo",
+      "charges": [
+        { "subscriber_no": "5552000001", "type": "RECURRING", "description": "Monthly plan charge (Unlimited Plus)", "amount": "45.00", "amount_minor": 4500, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5552000001", "type": "FEE", "description": "Regulatory fee", "amount": "2.00", "amount_minor": 200, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5552000001", "type": "FEE", "description": "Administrative fee", "amount": "1.50", "amount_minor": 150, "taxable": true, "tax_category": "STD" },
+        { "subscriber_no": "5552000001", "type": "DISCOUNT", "description": "Loyalty 10% off recurring", "amount": "-4.50", "amount_minor": -450, "taxable": false, "tax_category": "" },
+        { "subscriber_no": "", "type": "TAX", "description": "Federal Excise Tax", "amount": "1.46", "amount_minor": 146, "taxable": false, "tax_category": "*" },
+        { "subscriber_no": "", "type": "TAX", "description": "State Sales Tax", "amount": "4.00", "amount_minor": 400, "taxable": false, "tax_category": "STD" }
+      ],
+      "totals": {
+        "usage": "0.00",
+        "recurring": "45.00",
+        "fees": "3.50",
+        "discounts": "-4.50",
+        "tax": "5.46",
+        "grand_total": "49.46"
+      }
+    }
+  ]
+}

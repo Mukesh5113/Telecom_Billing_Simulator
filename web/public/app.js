@@ -179,7 +179,11 @@ async function generate() {
 
     renderResults(mode, payload.result);
     printBtn.disabled = false;
-    setStatus('Done. Rendered from: ' + (payload.binary || 'tbs'), '');
+    if (payload.sample) {
+      setStatus('Showing bundled SAMPLE output (build the C++ binary for live runs).', 'warn');
+    } else {
+      setStatus('Done. Rendered from: ' + (payload.binary || 'tbs'), '');
+    }
   } catch (err) {
     setStatus('Error: ' + err.message, 'error');
   } finally {

@@ -14,6 +14,7 @@ const url = require('url');
 
 const ROOT = path.resolve(__dirname, '..');
 const PUBLIC = path.join(__dirname, 'public');
+const SAMPLE_DIR = path.join(__dirname, 'sample');
 const PORT = process.env.PORT || 3000;
 const DATA_DIR = process.env.TBS_DATA || path.join(ROOT, 'data');
 
@@ -39,19 +40,35 @@ function locateBinary() {
   return candidates.find(fs.existsSync) || null;
 }
 
+// When the C++ binary hasn't been built, fall back to bundled sample output
+// so the UI is still fully demoable. The numbers match what the simulator
+// produces for the sample dataset in data/.
+function loadSample(mode) {
+  const file = path.join(SAMPLE_DIR, mode + '.json');
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+
 // Run the simulator for one mode and parse its JSON stdout.
 function runSimulator(mode, account) {
   const bin = locateBinary();
   if (!bin) {
-    return {
-      ok: false,
-      status: 503,
-      error:
-        'Simulator binary not found. Build it first:\n' +
-        '  cmake -S . -B build -DCMAKE_BUILD_TYPE=Release\n' +
-        '  cmake --build build --config Release\n' +
-        'Or set TBS_BIN to the tbs executable path.',
-    };
+    const data = loadSample(mode);
+    if (!data) {
+      return {
+        ok: false,
+        status: 503,
+        error:
+          'Simulator binary not found and no bundled sample available. Build it first:\n' +
+          '  cmake -S . -B build -DCMAKE_BUILD_TYPE=Release\n' +
+          '  cmake --build build --config Release\n' +
+          'Or set TBS_BIN to the tbs executable path.',
+      };
+    }
+    return { ok: true, status: 200, data, binary: '(bundled sample)', sample: true };
   }
 
   const args = ['--data', DATA_DIR, '--mode', mode, '--format', 'json'];
@@ -125,7 +142,18 @@ const server = http.createServer((req, res) => {
     if (!result.ok) {
       return sendJson(res, result.status, { error: result.error });
     }
-    return sendJson(res, 200, { mode, binary: result.binary, result: result.data });
+    let data = result.data;
+    // For bundled sample output, apply the account filter in JS (the CLI does
+    // this itself when the real binary runs).
+    if (result.sample && mode === 'postpaid' && account && data && data.invoices) {
+      data = { invoices: data.invoices.filter((inv) => String(inv.ban) === account) };
+    }
+    return sendJson(res, 200, {
+      mode,
+      binary: result.binary,
+      sample: !!result.sample,
+      result: data,
+    });
   }
 
   if (parsed.pathname === '/api/health') {

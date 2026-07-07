@@ -1,0 +1,19 @@
+{
+  "prepaid": [
+    {
+      "ban": "2001",
+      "subscriber_no": "5559000001",
+      "start_balance": "10.00",
+      "end_balance": "17.00",
+      "rejected_count": 1,
+      "events": [
+        { "time": "2026-07-01T08:00:00", "kind": "VOICE", "description": "Usage charged", "amount": "1.50", "balance_after": "8.50", "rejected": false },
+        { "time": "2026-07-01T09:00:00", "kind": "SMS", "description": "Usage charged", "amount": "0.50", "balance_after": "8.00", "rejected": false },
+        { "time": "2026-07-01T10:00:00", "kind": "DATA", "description": "Usage charged", "amount": "1.00", "balance_after": "7.00", "rejected": false },
+        { "time": "2026-07-02T09:00:00", "kind": "TOPUP", "description": "Balance top-up", "amount": "20.00", "balance_after": "27.00", "rejected": false },
+        { "time": "2026-07-02T10:00:00", "kind": "DATA", "description": "Usage charged", "amount": "10.00", "balance_after": "17.00", "rejected": false },
+        { "time": "2026-07-03T10:00:00", "kind": "VOICE", "description": "Insufficient balance - usage rejected", "amount": "30.00", "balance_after": "17.00", "rejected": true }
+      ]
+    }
+  ]
+}

@@ -85,6 +85,7 @@ body {
 .status { min-height: 18px; margin: 12px 0 0; font-size: 0.85rem; }
 .status.error { color: var(--neg); white-space: pre-wrap; }
 .status.busy { color: var(--brand); }
+.status.warn { color: #92400e; }
 
 .hint {
   margin-top: 16px; padding: 12px; border-radius: 10px;

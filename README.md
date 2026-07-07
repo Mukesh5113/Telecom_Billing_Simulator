@@ -98,6 +98,8 @@ tbs [options]
 
 ## Web UI (generate a printable bill / PDF)
 
+![Telecom Billing Simulator web UI](docs/ui-preview.svg)
+
 A simple browser UI lives in [`web/`](web/). It is a zero-dependency Node.js
 server that **triggers the compiled simulator** (`tbs --format json`), renders a
 styled invoice (or prepaid balance history) in the browser, and lets you **Save
@@ -128,8 +130,10 @@ Override with environment variables if needed:
 - `TBS_DATA` - data directory (default: `../data`)
 - `PORT`     - server port (default: 3000)
 
-If the binary has not been built yet, the UI shows a clear message with the build
-command instead of failing silently.
+If the binary has not been built yet, the UI still works: the server falls back
+to **bundled sample output** in [`web/sample/`](web/sample/) (the same numbers the
+simulator produces for the sample dataset) and the UI flags it as sample mode.
+This makes the interface demoable from a fresh clone without a C++ toolchain.
 
 ---
 
@@ -213,6 +217,8 @@ src/                  Implementations + main.cpp
 data/                 Sample input data
 tests/                Self-contained test suite (CTest)
 web/                  Browser UI (Node server + HTML/CSS/JS) -> printable PDF
+web/sample/           Bundled JSON output so the UI runs without the binary
+docs/                 UI preview image used in this README
 third_party/rapidjson RapidJSON (vendored, MIT)
 .github/workflows     CI (build + test on Linux and Windows)
 ```
