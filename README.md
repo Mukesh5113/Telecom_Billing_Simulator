@@ -96,6 +96,43 @@ tbs [options]
 
 ---
 
+## Web UI (generate a printable bill / PDF)
+
+A simple browser UI lives in [`web/`](web/). It is a zero-dependency Node.js
+server that **triggers the compiled simulator** (`tbs --format json`), renders a
+styled invoice (or prepaid balance history) in the browser, and lets you **Save
+as PDF** via the print dialog.
+
+```
+[browser UI]  --HTTP-->  [Node server]  --spawn-->  [tbs binary]  --JSON-->  [rendered bill]
+```
+
+### Run it
+
+1. Build the C++ simulator first (see [Build](#build)) so the `tbs` binary exists
+   under `build/`.
+2. Start the UI server (Node 18+):
+
+   ```bash
+   cd web
+   npm start          # or: node server.js
+   ```
+
+3. Open http://localhost:3000, choose a mode (postpaid / prepaid), optionally a
+   BAN, and click **Generate Bill**. Then click **Save as PDF**.
+
+The server auto-detects the binary at `build/tbs`, `build/Release/tbs.exe`, etc.
+Override with environment variables if needed:
+
+- `TBS_BIN`  - full path to the `tbs` executable
+- `TBS_DATA` - data directory (default: `../data`)
+- `PORT`     - server port (default: 3000)
+
+If the binary has not been built yet, the UI shows a clear message with the build
+command instead of failing silently.
+
+---
+
 ## Data formats
 
 All input lives in one directory (see [`data/`](data/) for a working example).
@@ -175,6 +212,7 @@ include/tbs/          Public headers (domain, engines, io)
 src/                  Implementations + main.cpp
 data/                 Sample input data
 tests/                Self-contained test suite (CTest)
+web/                  Browser UI (Node server + HTML/CSS/JS) -> printable PDF
 third_party/rapidjson RapidJSON (vendored, MIT)
 .github/workflows     CI (build + test on Linux and Windows)
 ```

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telecom Billing Simulator</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="app-header no-print">
+    <div class="brand">
+      <span class="logo">TBS</span>
+      <div>
+        <h1>Telecom Billing Simulator</h1>
+        <p class="subtitle">Run the billing engine and generate a printable bill</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="controls no-print" aria-label="Controls">
+      <h2>Run a bill</h2>
+
+      <label class="field">
+        <span>Mode</span>
+        <select id="mode">
+          <option value="postpaid">Postpaid (invoice)</option>
+          <option value="prepaid">Prepaid (balance history)</option>
+        </select>
+      </label>
+
+      <label class="field" id="accountField">
+        <span>Account (BAN) <em>optional</em></span>
+        <input id="account" type="text" placeholder="e.g. 1001 (blank = all)" />
+      </label>
+
+      <div class="actions">
+        <button id="runBtn" class="btn primary">Generate Bill</button>
+        <button id="printBtn" class="btn" disabled>Save as PDF</button>
+      </div>
+
+      <p id="status" class="status" role="status"></p>
+
+      <div class="hint">
+        <strong>Tip:</strong> "Save as PDF" opens your browser's print dialog -
+        choose <em>Save as PDF</em> as the destination.
+      </div>
+    </section>
+
+    <section class="results" id="results" aria-live="polite">
+      <div class="empty" id="emptyState">
+        <p>No bill yet. Choose a mode and click <strong>Generate Bill</strong>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer no-print">
+    <span>Telecom Billing Simulator &middot; C++17 core + RapidJSON &middot; MIT</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

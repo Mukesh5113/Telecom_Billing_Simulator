@@ -8,6 +8,10 @@ cmake-build-*/
 *.lib
 *.a
 
+# Node (web UI)
+node_modules/
+npm-debug.log*
+
 # IDE / editor
 .vs/
 .vscode/

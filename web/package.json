@@ -1,0 +1,13 @@
+{
+  "name": "telecom-billing-simulator-ui",
+  "version": "1.0.0",
+  "description": "Simple web UI that triggers the Telecom Billing Simulator and renders a printable bill (PDF).",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
